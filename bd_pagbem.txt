@@ -1,0 +1,101 @@
+# Host: localhost  (Version 5.5.5-10.1.21-MariaDB)
+# Date: 2017-02-19 05:21:28
+# Generator: MySQL-Front 5.4  (Build 1.38)
+
+/*!40101 SET NAMES utf8 */;
+
+#
+# Structure for table "avaliacoes"
+#
+
+CREATE TABLE `avaliacoes` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_estabelecimento` int(11) DEFAULT NULL,
+  `id_forma_pgto` int(11) DEFAULT NULL,
+  `pontuacao` int(11) DEFAULT NULL,
+  `comentario` longtext,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "avaliacoes"
+#
+
+INSERT INTO `avaliacoes` VALUES (1,1,1,1,3,'teste de avaliação'),(2,1,2,1,2,'segundo teste'),(3,1,3,4,5,'adasdasd'),(4,1,4,1,1,'não tem vantagem nenhuma'),(5,1,5,4,5,'Milhas em dobro'),(6,2,4,4,4,'outro usuário');
+
+#
+# Structure for table "cidades"
+#
+
+CREATE TABLE `cidades` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `cidade` varchar(255) DEFAULT NULL,
+  `uf` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "cidades"
+#
+
+INSERT INTO `cidades` VALUES (1,'João Pessoa','PB'),(2,'Recife','PE');
+
+#
+# Structure for table "estabelecimento"
+#
+
+CREATE TABLE `estabelecimento` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `complemento` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "estabelecimento"
+#
+
+INSERT INTO `estabelecimento` VALUES (1,'Posto X',1,NULL,NULL,NULL),(2,'Posto Y',1,NULL,NULL,NULL),(3,'Restaurante X',2,NULL,NULL,NULL),(4,'Habbibs',2,NULL,NULL,NULL),(5,'Devassa',1,NULL,NULL,NULL);
+
+#
+# Structure for table "forma_pgto"
+#
+
+CREATE TABLE `forma_pgto` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(255) DEFAULT NULL,
+  `forma_pgto` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "forma_pgto"
+#
+
+INSERT INTO `forma_pgto` VALUES (1,'Dinheiro',NULL),(2,'Cartão de Crédito Visa',NULL),(3,'Cartão de Débito Visa',NULL),(4,'Cartão de Crédito Master',NULL),(5,'Cartão de Débito Master',NULL);
+
+#
+# Structure for table "usuarios"
+#
+
+CREATE TABLE `usuarios` (
+  `id_usuario` varchar(2) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `nome` varchar(50) DEFAULT NULL,
+  `data_cada` date DEFAULT NULL,
+  `data_nasc` date DEFAULT NULL,
+  `nivel` int(1) DEFAULT NULL,
+  `senha` varchar(12) NOT NULL DEFAULT 'pagbem123',
+  `id_cidade` int(11) DEFAULT NULL,
+  UNIQUE KEY `Novo Índice` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+#
+# Data for table "usuarios"
+#
+
+INSERT INTO `usuarios` VALUES ('1','alyssonfabio@gmail.com','Alysson Fábio','2017-02-18','1980-03-23',2,'123456',1);

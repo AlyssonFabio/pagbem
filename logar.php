@@ -25,7 +25,6 @@ include "intra-functions.php";
  <div class="container">
     
   <div class="form-container flip" align="center">
-  <p align="center"><img src="images/sisclinlogo.png"  width="250"/></p>
     <form class="login-form" method="post" id="aut">
       <h3 class="title">Login</h3>
       <div class="form-group" id="username">
